@@ -3,13 +3,16 @@ __pycache__/
 *.py[cod]
 *.egg-info/
 build/
+build_zipapp/
 dist/
 .venv/
 .venv*/
 scratch/
 
-# Local run artefacts
+# Local run artefacts and build/CI debris
 .scratch/
+*.pyz
+_ci.*
 
 # Never commit a home, a profile store or a backup: they contain live credentials.
 auth.json

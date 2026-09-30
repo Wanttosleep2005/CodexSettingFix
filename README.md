@@ -155,7 +155,9 @@ settingfix use relay
 python -m unittest discover -s tests -v
 ```
 
-78 项测试，覆盖 TOML 手术式改写（含「顶层键被插进表里」这类静默错位回归）、认证面捕获与叠加、凭据标签、档案校验、备份回滚、doctor 各检查项、环境清理与 shim 解析。全部使用虚构凭据和临时目录。CI 在 Windows 与 Ubuntu 上跑 Python 3.11 / 3.12 / 3.13。
+78 项测试，覆盖 TOML 手术式改写（含「顶层键被插进表里」这类静默错位回归）、认证面捕获与叠加、凭据标签、档案校验、备份回滚、doctor 各检查项、环境清理与 shim 解析。全部使用虚构凭据和临时目录，不触碰真实的 `~/.codex`。
+
+**关于 CI：** `.github/workflows/ci.yml` 已提交（Windows + Ubuntu × Python 3.11/3.12/3.13，外加一个「只用标准库即可跑」的 job），但在本仓库上**它不会真正执行**——账号的 Actions 会在创建 job 后约 2 秒内直接失败，且 step 列表为空，即 runner 从未启动。同一个现象也出现在本仓库的第一个版本上。因此 0.2.0 的验证是**本机实跑**得到的：本机 Python 3.12 上 78/78 通过，wheel 离线安装后 `settingfix doctor` 对真实 Codex home 输出如上。等 Actions 恢复后工作流即可直接用。
 
 ## 参考
 
