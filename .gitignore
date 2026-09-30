@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+.venv*/
+scratch/
+
+# Local run artefacts
+.scratch/
+
+# Never commit a home, a profile store or a backup: they contain live credentials.
+auth.json
+auth.json.*
+config.toml
+config.toml.*
+.codex/
+.codex-setting-fix/
+.settingfix/
+*.log
+
+# Assistant workspace memory -- never publish
+.workbuddy/

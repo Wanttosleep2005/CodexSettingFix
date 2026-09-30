@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-setting-fix"
+dynamic = ["version"]
+description = "Keep Codex account switchers (CC Switch, Cockpit, ...) from contaminating one shared Codex home."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Wanttosleep2005" }]
+keywords = ["codex", "cc-switch", "cockpit", "auth", "config", "openai"]
+classifiers = [
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Utilities",
+]
+dependencies = []
+
+[project.scripts]
+settingfix = "settingfix.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "settingfix.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
